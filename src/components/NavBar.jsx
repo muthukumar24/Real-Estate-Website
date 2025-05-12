@@ -23,16 +23,16 @@ const NavBar = () => {
       >
         <img src={assets.assets.logo} alt="logo" />
         <ul className="hidden md:flex gap-7 text-white">
-          <a href="#header" className="cursor-pointer hover:text-gray-400">
+          <a href="#Header" className="cursor-pointer hover:text-gray-400">
             Home
           </a>
-          <a href="#header" className="cursor-pointer hover:text-gray-400">
+          <a href="#About" className="cursor-pointer hover:text-gray-400">
             About
           </a>
-          <a href="#header" className="cursor-pointer hover:text-gray-400">
+          <a href="#Projetcs" className="cursor-pointer hover:text-gray-400">
             Projetcs
           </a>
-          <a href="#header" className="cursor-pointer hover:text-gray-400">
+          <a href="#Testimonial" className="cursor-pointer hover:text-gray-400">
             Testimonial
           </a>
         </ul>
