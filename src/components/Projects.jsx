@@ -6,8 +6,18 @@ const Projects = () => {
   const [cardsToShow, setCardsToShow] = useState(1);
 
   useEffect(() => {
-    
-  }, [])
+    const updateCardsToShow = () => {
+      if (window.innerWidth >= 1024) {
+        setCardsToShow(assets.projectsData.length);
+      } else {
+        setCardsToShow(1);
+      }
+    };
+    updateCardsToShow();
+
+    window.addEventListener("resize", updateCardsToShow);
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
 
   const nextProject = () => {
     setCurrentIndex(
