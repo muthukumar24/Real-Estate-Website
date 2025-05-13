@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -18,16 +20,22 @@ const Contact = () => {
     const data = await response.json();
 
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      setResult("");
+      toast.success("Form Submitted Successfully")
       event.target.reset();
     } else {
       console.log("Error", data);
-      setResult(data.message);
+      toast.error(data.message)
+      setResult("");
     }
   };
 
   return (
-    <div
+    <motion.div
+        initial={{opacity: 0, y: 100}}
+      transition={{duration: 1}}
+      whileInView={{opacity: 1, y: 0}}
+      viewport={{once: true}}
       className="text-center p-6 py-20 lg:px-32 w-full overflow-hidden"
       id="Contact"
     >
@@ -74,10 +82,10 @@ const Contact = () => {
           ></textarea>
         </div>
         <button className="bg-blue-600 text-white py-2 px-12 mb-10 rounded cursor-pointer">
-          Send Message
+          {result ? result : "Send Message"}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
